@@ -94,6 +94,6 @@ function convertToStandardRequest(req: express.Request): StandardRequest {
     headers,
     method,
     // @ts-ignore
-    body: req,
+    body: ['GET', 'HEAD'].includes(method.toUpperCase()) ? null : req,
   });
 }
